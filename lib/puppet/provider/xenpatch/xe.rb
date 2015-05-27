@@ -34,6 +34,8 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
   has_feature :upgradeable
   has_feature :versionable
 
+  has_feature :auth_params
+
   # Prefetch the patch list:
   def self.prefetch(patches)
     instances.each do |prov|
@@ -87,9 +89,16 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
   end
 
   def install
+    # For uploading a patch file and for patch-pool-apply, we need the root password.
+    # Get this from :auth_params
+    if resource[:auth_params]
+      Puppet.debug("Got auth_params => #{resource[:auth_params].inspect}")
+    end
+
     should = @resource.should(:ensure)
     if [:latest, :installed, :present].include?(should)
-      patch_uuid = xe("patch-upload", @resource[:source])
+      patch_uuid = xe("patch-upload file-name=", @resource[:source])
+      Puppet.debug("XE: Uploaded patch; UUID = #{patch-uuid}")
     end
   end
 

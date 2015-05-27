@@ -33,7 +33,8 @@ Puppet::Type.newtype(:xenpatch) do
 
   feature :installable, "The provider can install Xen patches.", :methods => [:install]
   feature :upgradeable, "The provider can upgrade Xen patches.", :methods => [:upgrade]
-  feature :install_options, "The provider accepts options to be passed to the installer command."
+
+  feature :auth_params, "The provider accepts parameters to be passed to the xe command for auth purposes."
 
   ensurable do
     desc "What state the patch should be in. Default is 'installed'." # Here perhaps we should also have 'applied' for slaves.
@@ -84,6 +85,10 @@ Puppet::Type.newtype(:xenpatch) do
         raise ArgumentError, "%s is not a valid patch name" % value
       end
     end
+  end
+
+  newparam(:auth_params, :required_features => :auth_params) do
+    desc "A hash of auth params to be handled by the provider when installing a patch using `xe`."
   end
 
   newparam(:source) do
