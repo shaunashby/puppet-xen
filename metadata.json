@@ -1,0 +1,14 @@
+{
+  "name": "puppet-xen",
+  "version": "0.1.0",
+  "author": "shaun.ashby@gmail.com",
+  "summary": "A module to manage XenServer hypervisor installations.",
+  "license": "GPLv3",
+  "source": "https://github.com/shaunashby/puppet-xen.git",
+  "project_page": "https://github.com/shaunashby/puppet-xen",
+  "issues_url": "https://github.com/shaunashby/puppet-xen/issues",
+  "dependencies": [
+    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"}
+  ]
+}
+
