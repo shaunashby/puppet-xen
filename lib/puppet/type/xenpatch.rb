@@ -27,7 +27,7 @@ Puppet::Type.newtype(:xenpatch) do
 
       xenpatch { 'XS62ESP1025':
         ensure => installed,
-        source => '/root/XS62ESP1025.zip',
+        source => '/root/XS62ESP1025.xsupdate',
       }
   }
 
@@ -101,8 +101,8 @@ Puppet::Type.newtype(:xenpatch) do
         to the target system."
 
     validate do |value|
-      unless value =~ /XS.*zip/
-        raise ArgumentError, "%s is not a valid patch file name (should be a Zip file)." % value
+      unless value =~ /XS.*xsupdate/
+        raise ArgumentError, "%s is not a valid patch file name (should have .xsupdate suffix)." % value
       end
       # Further validation:
       provider.validate_source(value)
