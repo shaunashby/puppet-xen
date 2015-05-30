@@ -93,6 +93,8 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
     # Get this from :auth_params
     if resource[:auth_params]
       Puppet.debug("Got auth_params => #{resource[:auth_params].inspect}")
+    else
+      fail("xenpatch must have auth_params to connect to pool master.")
     end
 
     should = @resource.should(:ensure)
@@ -121,6 +123,10 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
 
   def update # Could use an alias here
     install
+  end
+
+  def auth_params
+    join_options(resource[:auth_params])
   end
 
 end
