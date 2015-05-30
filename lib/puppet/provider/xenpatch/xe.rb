@@ -24,8 +24,8 @@
 Puppet::Type.type(:xenpatch).provide(:xe) do
   desc "XenPatch provider, using the xe executable. Only for use on XenServer installs."
 
-  confine    :operatingsystem => :xenserver
-  defaultfor :operatingsystem => :xenserver
+  confine    :operatingsystem => 'XenServer'
+  defaultfor :operatingsystem => 'XenServer'
 
   has_command(:xe, '/opt/xensource/bin/xe')
 
