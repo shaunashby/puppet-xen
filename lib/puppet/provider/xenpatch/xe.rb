@@ -118,6 +118,11 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
   end
 
   def validate_source(value)
+    # Check that the path to the source Zip file is absolute and valid:
+    fail("xenpatch must have a source parameter.") if value.nil?
+    if !absolute_path?(value)
+      fail("xenpatch source parameter must be an absolute path.")
+    end
     true
   end
 
