@@ -4,7 +4,7 @@
 #____________________________________________________________________
 #
 # Author:  <sashby@dfi.ch>
-# Created: 2015-05-26 09:30:26+0200 (Time-stamp: <2015-05-27 12:01:07 sashby>)
+# Created: 2015-05-26 09:30:26+0200
 # Revision: $Id$
 # Description: Provider for xenpatch type.
 #

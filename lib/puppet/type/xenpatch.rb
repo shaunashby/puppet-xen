@@ -4,7 +4,7 @@
 #____________________________________________________________________
 #
 # Author:  <sashby@dfi.ch>
-# Created: 2015-05-26 09:32:35+0200 (Time-stamp: <2015-05-27 11:58:28 sashby>)
+# Created: 2015-05-26 09:32:35+0200
 # Revision: $Id$
 # Description: The xenpatch type definition.
 #
