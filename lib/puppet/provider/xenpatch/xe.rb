@@ -99,7 +99,7 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
 
     should = @resource.should(:ensure)
     if [:latest, :installed, :present].include?(should)
-      patch_uuid = xe("patch-upload file-name=", @resource[:source])
+      patch_uuid = xe("patch-upload file-name=",@resource[:source])
       Puppet.debug("XE: Uploaded patch; UUID = #{patch-uuid}")
     end
   end
