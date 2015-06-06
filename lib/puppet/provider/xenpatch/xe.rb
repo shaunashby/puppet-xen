@@ -109,7 +109,7 @@ Puppet::Type.type(:xenpatch).provide(:xe) do
   end
 
   def upload_patch
-    output = xe('patch-upload',@resource[:source])
+
   end
 
   # Clear out the cached values.
